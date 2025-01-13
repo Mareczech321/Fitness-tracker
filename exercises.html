@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercises</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./img/dumbell.ico" type="image/x-icon">
+    <style>
+        nav a:nth-child(2){
+            background-color: #28a745;
+        }
+        #exerciseList{
+            display: inline-flex;
+            margin: 30px;
+        }
+        .exercise-card{
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Fitness Tracker</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="exercises.html">Exercises</a>
+            <a href="progress.html">Progress</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+        <h2>Exercise Library</h2>
+        <h3>Most popular</h3>
+        <div id="exerciseList">
+            <div class="exercise-card">
+                <h3>Push-Ups</h3>
+                <p>Reps: 3 x 15</p>
+                <button onclick="logExercise('Push-Ups', '3', '15')">Log Exercise</button>
+            </div>
+            <div class="exercise-card">
+                <h3>Squats</h3>
+                <p>Reps: 3 x 12</p>
+                <button onclick="logExercise('Squats', '3', '12')">Log Exercise</button>
+            </div>
+            <div class="exercise-card">
+                <h3>Pull-Ups</h3>
+                <p>Reps: 3 x 8</p>
+                <button onclick="logExercise('Pull-Ups', '3', '8')">Log Exercise</button>
+            </div>
+            <div class="exercise-card">
+                <h3>Running</h3>
+                <p>Reps: 2 x 15min</p>
+                <button onclick="logExercise('Running', '2', '15')">Log Exercise</button>
+            </div>
+        </div>
+
+        <hr>
+        <h2>Custom exercise</h2>
+        <div class="exercise-form">
+            <label for="exerciseName">Name:</label>
+            <input type="text" id="exerciseName" placeholder="Enter exercise name" required>
+        
+            <div class="reps-sets">
+                <div class="input-group">
+                    <label for="reps">Reps:</label>
+                    <input type="number" id="reps" placeholder="Enter reps" required min="1" value="1">
+                </div>
+                <div class="input-group">
+                    <label for="sets">Sets:</label>
+                    <input type="number" id="sets" placeholder="Enter sets" required min="1" value="1">
+                </div>
+            </div>
+        
+            <button id="logButton">Log Exercise</button>
+        </div>          
+        <footer>
+            <p>© Marek Mulač</p>
+        </footer>
+
+    <script src="script.js"></script>
+    <script src="exercises.js"></script>
+</body>
+</html>

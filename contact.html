@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./jquery.js"></script>
+    <link rel="shortcut icon" href="./img/dumbell.ico" type="image/x-icon">
+    <style>
+        nav a:nth-child(4){
+            background-color: #28a745;
+        }
+        form{
+            margin-top: 20px;
+        }
+        #Contact_Us{
+            position: relative;
+            top: -12px;
+        }
+        #Label_Message{
+            position: relative;
+            top: -50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Fitness Tracker</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="exercises.html">Exercises</a>
+            <a href="progress.html">Progress</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+        <div class="form-row">
+        
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your name" autocomplete="name" required>
+                
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Your email" autocomplete="email" required>
+        </div>
+        <textarea id="message" rows="4" placeholder="Your message" autocomplete="off" required></textarea>
+
+        <button type="submit" id="Contact_Us">Send Message</button>
+    </form>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+        emailjs.init({
+            publicKey: "jtpzXrrsZ9LehrFPf",
+        });
+        })();
+    </script>
+
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the form from submitting the default way
+
+        // Get values from the form
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        var templateParams = {
+            from_name: name,
+            reply_to: email,
+            message: message
+        };
+
+        // Validate input fields
+        if (templateParams.from_name && templateParams.reply_to && templateParams.message) {
+            emailjs.send('service_tmdpzkw', 'template_xrjldfm', templateParams).then(
+                (response) => {
+                    console.log('SUCCESS!', response.status, response.text);
+                    alert('Your message has been sent successfully!'); // Optional alert
+                },
+                (error) => {
+                    console.log('FAILED...', error);
+                    alert('There was an error sending your message. Please try again later.'); // Optional alert
+                }
+            );
+        } else {
+            console.log("Please fill out all fields.");
+        }
+    });
+</script>
+
+<footer>
+    <p>© Marek Mulač</p>
+</footer>
+
+</body>
+</html>
