@@ -73,7 +73,7 @@ Navigate to the Home Page (`index.html`) to access the main sections:
 1. Fill out the contact form with your name, email, and message.
 2. Click "Send Message" to submit your query.
 
-### Website is hosted at http://marekmulac.wz.cz:8080/
+### Website is hosted at http://fitness-tracker.wz.cz:8080/
 
 ---
 
